@@ -76,13 +76,13 @@ WHERE d.dept_name = 'Sales';
 --7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
 SELECT
-    e.emp_no AS employee_number,
-    e.last_name,
-    e.first_name,
+    em.emp_no AS employee_number,
+    em.last_name,
+    em.first_name,
     d.dept_name AS department_name
-FROM employees AS e
+FROM employees AS em
 INNER JOIN dept_emp AS de
-    ON e.emp_no = de.emp_no
+    ON em.emp_no = de.emp_no
 INNER JOIN departments AS d
     ON de.dept_no = d.dept_no
 WHERE d.dept_name IN ('Sales', 'Development');

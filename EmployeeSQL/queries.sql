@@ -1,14 +1,14 @@
 --1. List the following details of each employee: employee number, last name, first name, sex, and salary.
 
 SELECT
-    e.emp_no AS employee_number,
-    e.last_name,
-    e.first_name,
-    e.sex,
+      em.emp_no AS employee_number,
+    em.last_name,
+    em.first_name,
+    em.sex,
     s.salary
-FROM employees AS e
+FROM employees AS em
 INNER JOIN salaries AS s
-    ON e.emp_no = s.emp_no;
+    ON em.emp_no = s.emp_no;
 
 --2. List first name, last name, and hire date for employees who were hired in 1986.
 
@@ -25,14 +25,14 @@ WHERE hire_date >= '1986-01-01'
 SELECT
     d.dept_no AS department_number,
     d.dept_name AS department_name,
-    e.emp_no AS manager_employee_number,
-    e.last_name,
-    e.first_name
+    em.emp_no AS manager_employee_number,
+    em.last_name,
+    em.first_name
 FROM departments AS d
 INNER JOIN dept_manager AS dm
     ON d.dept_no = dm.dept_no
-INNER JOIN employees AS e
-    ON dm.emp_no = e.emp_no;
+INNER JOIN employees AS em
+    ON dm.emp_no = em.emp_no;
 
 --4. List the department of each employee with the following information: employee number, last name, first name, and department name.
 
